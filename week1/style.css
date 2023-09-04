@@ -92,29 +92,30 @@ header{
     .nav{
         display: none;
     }
+    
     .icon{
         width: 50px;
         height: 3px;
         background-color: black;
         margin: 8px ;
-      }
+    }
     
     .icons{
         margin: 15px 40px 0;
     }   
-    }
+}
 
 @media screen and (min-width:500px){
     .box{
-    height: 25vh;
-    width: 40vw;
-    max-width: 600px;     
-}
+        height: 25vh;
+        width: 40vw;
+        max-width: 600px;     
+    }
 }
 
 @media screen and (max-width:500px){
     .box{
-    flex:1 400px;     
+        flex:1 400px;     
     }
 }
 
