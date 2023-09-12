@@ -1,6 +1,6 @@
 //Assignment 1:
 function max(numbers) {
-    var maximum = numbers[0];
+    let maximum = numbers[0];
     for(let i =1; i < numbers.length; i++){         
         if (maximum < numbers[i]){
             maximum = numbers[i];            
@@ -11,7 +11,7 @@ function max(numbers) {
 
 //Assignment 2:
 function calculate(args) {
-    var value;
+    let value;
     if(args.op === '+'){
         value = args.n1 + args.n2;
     }
@@ -26,9 +26,9 @@ function calculate(args) {
 
 //Assignment 3:
 function calculate(data) {
-    var taxed = 0; 
+    let taxed = 0; 
     for (let i = 0; i < data.products.length; i++){
-        taxed += data.discount * data.products[i].price;
+        taxed += (1-data.discount) * data.products[i].price;
     }
     return taxed;
 }
