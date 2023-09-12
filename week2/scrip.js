@@ -11,12 +11,7 @@ const closeButton=document.querySelector('.closebutton');
 const showList=document.querySelector('.showlist');
 
 icons.addEventListener('click',()=>{
-    if(showList.style.display==='none'){
-        showList.style.display='block';
-    }
-    else{
-        showList.style.display='none';
-    }
+    showList.style.display='block';    
 })
 
 closeButton.addEventListener('click',()=>{
