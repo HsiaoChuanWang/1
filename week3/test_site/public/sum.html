@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <input type="text" id="number"><button onclick="myFunction()">click</button>
+    <p id="returnValue"></p>
+  </body>
+</html>
+<script>
+ async function myFunction(){
+  const geyDataUrl = "/getData?number=" + document.getElementById('number').value;
+  await fetch(geyDataUrl,{
+            method: 'GET',
+        }).then(function(response) {
+            if (response.status >= 200 && response.status < 300) {
+                return response.text();
+            } else {
+                var error = new Error(response.statusText)
+                error.response = response
+                throw error.text();
+            }
+        })
+        .then(function(data) {
+          console.log(data);
+          document.getElementById('returnValue').innerHTML = data;
+        }).catch(function(error) {
+          console.log(error);
+            return error.response;
+        }).then(function(errorData){
+          console.log(errorData);
+        });
+ }
+</script>
