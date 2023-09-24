@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="returnJson"></div>
+  </body>
+</html>
+<script>
+  async function ajax(url){
+    const result = fetch(url,{
+            method: 'GET',
+        }).then(function(response) {
+          
+            if (response.status >= 200 && response.status < 300) {
+                return response.json();
+            } else {
+                var error = new Error(response.statusText)
+                error.response = response
+                throw error;
+            }
+        })
+        .then(function(data) {
+          return data;
+        }).catch(function(error) {
+          return error.response;
+        }).then(function(errorData){
+          return errorData;
+        });
+        return result;
+  }
+  function render(data) {
+    let innerHTMLValue = "";
+    data.forEach(element => {
+      innerHTMLValue+="<p>name: " + element.name + "</p>"
+      innerHTMLValue+="<p>price: " + element.price + "</p>"
+      innerHTMLValue+="<p>description: " + element.description + "</p>"
+      innerHTMLValue+="<hr>"
+    });
+    document.getElementById('returnJson').innerHTML = innerHTMLValue;
+  }
+  const url = "https://remote-assignment.s3.ap-northeast-1.amazonaws.com/products";
+  ajax(url).then((data) => {
+    render(data);
+  });
+</script>
